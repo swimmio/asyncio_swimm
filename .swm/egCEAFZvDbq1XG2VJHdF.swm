@@ -1,0 +1,80 @@
+{
+    "id": "egCEAFZvDbq1XG2VJHdF",
+    "name": "Dice Roller",
+    "dod": "Make the tests pass.",
+    "description": "Did you know that you can get values back from our coroutines?\nIn this unit we'll learn all about how to do just that.\n\n## Recommended References\n* https://docs.python.org/3.9/library/asyncio-task.html#running-tasks-concurrently",
+    "summary": "In this unit we've learned the surprising truth about coroutines: they're still functions! And just like functions, they can return values!\n\nOther than that, we saw a good demonstration to how concurrent execution worked: notice how despite them sleeping, the time it took for each new \"roll\" of the dice wasn't `SLEEP_TIME * 6` but instead `SLEEP_TIME`, as each of the calls to `asyncio.sleep` didn't block the entire function but instead relinquished control back to the event loop.\n\nIt's also worth mentioning something that might go unnoticed: the list of values gathered by `asyncio.gather` is ordered by _the order of the coroutines passed into it_. This mean you can alway guarantee you know what return value belongs to each coroutine (something that isn't always as trivial with other parallel execution methods).",
+    "hunksOrder": [
+        "src/dice_roller.py_0",
+        "src/dice_roller.py_1",
+        "src/dice_roller.py_2"
+    ],
+    "tests": [
+        "python -m pytest tests/test_dice_roller.py"
+    ],
+    "hints": [
+        "Despite running in their own special way, async functions behave much like... Well, functions."
+    ],
+    "play_mode": "handson",
+    "swimmPatch": {
+        "src/dice_roller.py": {
+            "diffType": "MODIFIED",
+            "fileDiffHeader": "diff --git a/src/dice_roller.py b/src/dice_roller.py\nindex f4b854a..6b89516 100644\n--- a/src/dice_roller.py\n+++ b/src/dice_roller.py",
+            "hunks": [
+                {
+                    "swimmHunkMetadata": {
+                        "hunkComments": []
+                    },
+                    "hunkDiffLines": [
+                        "@@ -1,5 +1,4 @@",
+                        " import asyncio",
+                        "-import random",
+                        " import typing",
+                        " ",
+                        " SLEEP_TIME = 0.2"
+                    ]
+                },
+                {
+                    "swimmHunkMetadata": {
+                        "hunkComments": []
+                    },
+                    "hunkDiffLines": [
+                        "@@ -16,13 +15,7 @@",
+                        "     :return: The target number.",
+                        "     :rtype: int",
+                        "     \"\"\"",
+                        "-    while roll := random.randint(1, 6):",
+                        "+    pass",
+                        "-        print(f'{target} is rolling the dice')",
+                        "-        await asyncio.sleep(SLEEP_TIME)",
+                        "-        print(f'{target} rolled a {roll}')",
+                        "-        if roll == target:",
+                        "-            print(f'{target} is out!')",
+                        "-            return roll",
+                        " ",
+                        " ",
+                        " async def gatherer() -> typing.Container[int]:"
+                    ]
+                },
+                {
+                    "swimmHunkMetadata": {
+                        "hunkComments": []
+                    },
+                    "hunkDiffLines": [
+                        "@@ -33,7 +26,7 @@",
+                        "     :return: List of every coroutine result.",
+                        "     :rtype: typing.Container[int]",
+                        "     \"\"\"",
+                        "-    return await asyncio.gather(*[dice_roller(i) for i in range(1, 7)])",
+                        "+    pass",
+                        " ",
+                        " ",
+                        " def runner() -> typing.Container[int]:"
+                    ]
+                }
+            ]
+        }
+    },
+    "app_version": "0.2.6",
+    "file_version": "1.0.4"
+}
