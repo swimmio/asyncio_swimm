@@ -1,0 +1,43 @@
+{
+    "id": "OJmOIn8kXdyxldLUQxGk",
+    "name": "Small Gathering",
+    "dod": "Make the tests pass.",
+    "description": "After learning how to run an asynchronous coroutine, let's learn how to really leverage the _asynchronous_ part of it and run several of them concurrently!\n\n## Recommended References\n* https://docs.python.org/3.8/library/asyncio-task.html#running-tasks-concurrently -> The official docs.\n* https://realpython.com/async-io-python/#async-io-explained -> A nice metaphor to what executing tasks asynchronously actually means.",
+    "summary": "In this unit we've learned about the use of `asyncio.gather` and how it allows us to await on several coroutines at the same time, allowing them to run concurrently!\n\nIf you're still unsure about the difference between concurrency and parallelism, read back the recommended references. Concurrent execution is a hard concept to grasp at first, but after reading and practicing it will come as second nature!",
+    "hunksOrder": [
+        "src/small_gathering.py_0"
+    ],
+    "tests": [
+        "python -m pytest tests/test_small_gathering.py"
+    ],
+    "hints": [
+        "Read the references, there's an `asyncio` function that allows you to run and await on a group of tasks together."
+    ],
+    "play_mode": "handson",
+    "swimmPatch": {
+        "src/small_gathering.py": {
+            "diffType": "MODIFIED",
+            "fileDiffHeader": "diff --git a/src/small_gathering.py b/src/small_gathering.py\nindex cac722b..2f5dd12 100644\n--- a/src/small_gathering.py\n+++ b/src/small_gathering.py",
+            "hunks": [
+                {
+                    "swimmHunkMetadata": {
+                        "hunkComments": []
+                    },
+                    "hunkDiffLines": [
+                        "@@ -17,7 +17,7 @@",
+                        "     :param announcements: The number of `announce` coroutines to instantiate.",
+                        "     :type announcements: int",
+                        "     \"\"\"",
+                        "-    await asyncio.gather(*[announce() for _ in range(announcements)])",
+                        "+    pass",
+                        " ",
+                        " ",
+                        " def runner(announcements: int) -> None:"
+                    ]
+                }
+            ]
+        }
+    },
+    "app_version": "0.2.6",
+    "file_version": "1.0.4"
+}
