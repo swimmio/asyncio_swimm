@@ -1,0 +1,79 @@
+{
+    "id": "33E26TM9Cmal4CUUWQSQ",
+    "name": "File Cabinet",
+    "dod": "Make the tests pass.",
+    "description": "After dealing a bit with unnecessary `sleep`y calls, let's test our newfound async skills to practical use.\n\nIn this unit we'll learn about `aiofiles`, an `asyncio` compatible package to deal with file operations.\n\n## Recommended References\n* https://github.com/Tinche/aiofiles#readme -> The package's `README`.\n* https://docs.python.org/3/reference/datamodel.html#asynchronous-context-managers -> A piece of the Python data model talking about what is an asynchronous context manager.",
+    "summary": "In this unit we've got our first \"practical real world experience\" with `asyncio`. One of the major I/O pain points we usually have is filesystem operations, which is precisely where `aiofiles` can help us out!\n\nLeveraging the power of async functions to make all of our operations against the filesystem concurrent saves us precious time when we want our system to be as performant as possible and avoid any blocking operations. ",
+    "hunksOrder": [
+        "src/file_cabinet.py_0",
+        "src/file_cabinet.py_1",
+        "src/file_cabinet.py_2"
+    ],
+    "tests": [
+        "python -m pytest tests/test_file_cabinet.py"
+    ],
+    "hints": [
+        "Look at the package's README file, there you can see the entire API it exposes. Notice how similar it is to how we normally deal with files?",
+        "Several Pythonic constructs and statements behave a bit differently when `async` is involved. Look for `async with`."
+    ],
+    "play_mode": "handson",
+    "swimmPatch": {
+        "src/file_cabinet.py": {
+            "diffType": "MODIFIED",
+            "fileDiffHeader": "diff --git a/src/file_cabinet.py b/src/file_cabinet.py\nindex 498e832..2c72b9c 100644\n--- a/src/file_cabinet.py\n+++ b/src/file_cabinet.py",
+            "hunks": [
+                {
+                    "swimmHunkMetadata": {
+                        "hunkComments": []
+                    },
+                    "hunkDiffLines": [
+                        "@@ -13,8 +13,7 @@",
+                        "     :param content: Content to write to the file.",
+                        "     :type content: str",
+                        "     \"\"\"",
+                        "-    async with aiofiles.open(path, 'w') as f:",
+                        "+    pass",
+                        "-        await f.write(content)",
+                        " ",
+                        " ",
+                        " async def read_file(path: Path) -> typing.List[str]:"
+                    ]
+                },
+                {
+                    "swimmHunkMetadata": {
+                        "hunkComments": []
+                    },
+                    "hunkDiffLines": [
+                        "@@ -26,8 +25,7 @@",
+                        "     :return: Contents of the file in `path`.",
+                        "     :rtype: typing.List[str]",
+                        "     \"\"\"",
+                        "-    async with aiofiles.open(path) as f:",
+                        "+    pass",
+                        "-        return await f.readlines()",
+                        " ",
+                        " ",
+                        " async def copy_every_odd_line(read_path: Path, write_path: Path) -> None:"
+                    ]
+                },
+                {
+                    "swimmHunkMetadata": {
+                        "hunkComments": []
+                    },
+                    "hunkDiffLines": [
+                        "@@ -40,6 +38,4 @@",
+                        "     :param write_path: Valid path on the filesystem to write to.",
+                        "     :type write_path: Path",
+                        "     \"\"\"",
+                        "-    read_lines = await read_file(read_path)",
+                        "+    pass",
+                        "-    write_buffer = ''.join(read_lines[::2])",
+                        "-    await write_file(write_path, write_buffer)"
+                    ]
+                }
+            ]
+        }
+    },
+    "app_version": "0.2.6",
+    "file_version": "1.0.4"
+}
