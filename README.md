@@ -1,9 +1,18 @@
 # `asyncio` Public Swimm Playlists
 
+## `asyncio`?
+
+From the [official Python docs](https://docs.python.org/3/library/asyncio.html):
+> `asyncio` is a library to write concurrent code using the `async/await` syntax.
+
+`asyncio` is our way as Python developers to interface with the asynchronous capabilities of the language, giving us the power to boost our performance and make our code utilize it's processing resources to their fullest.
+As it name might suggest, `asyncio` shines brightest when our code is I/O bound and not CPU bound, given how we can concurrently await on multiple I/O operations such as network requests or filesystem usage (in contrast to a CPU heavy program that is already using it's time to run our code without waiting).
+
+If all of this sounds confusing to you, you came to the right place! This is the perfect opportunity for you to realize the potential of `asyncio` and asynchronous programming!
+
 ## Playlists Overview
 
 The Playlists in this repo are supposed to present bite-sized exercises (or as we in Swimm call them, _Units_) that give you the building blocks necessary to create more complicated scripts and projects later on.
-As a bonus and to ease your progress as you slowly "learn to swim", the Playlists will follow the whimsical tale of a developer (you!) applying to your dream job at a record store, so you won't feel alone as you start to dive deeper into material.
 
 ### Unit Structure
 
@@ -11,7 +20,7 @@ Before you take your first few steps it's important to set our expectations:
 
 * In each Unit, you will be asked to make some tests pass (use `swimm test` as a shortcut for that) and will be presented with the files necessary for you to edit after you `swimm play`.
 * The **technical specifications** of what you need to achieve will be written as docstrings inside the **code itself**.
-* The Units' descripions themselves will not focus on teaching `asyncio` concepts, but instead will offer some _"Recommended References"_ that will help you solve this specific challenge. We encourage you to search online and dive deeper on your own!
+* The Units' descripions themselves will not focus on teaching `asyncio` concepts, but instead will offer some _"Recommended References"_ that will help you solve each specific challenge. We encourage you to search online and dive deeper on your own!
 
 ## Prerequisites
 
