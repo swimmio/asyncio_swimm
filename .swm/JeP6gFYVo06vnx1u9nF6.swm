@@ -1,65 +1,67 @@
 {
     "id": "JeP6gFYVo06vnx1u9nF6",
     "name": "Hello Asyncio!",
-    "dod": "Make the tests pass.",
-    "description": "In this unit we'll learn the basics of defining an `async` function and running it using `asyncio`.\n\n## Recommended References\n* https://docs.python.org/3/library/asyncio.html -> The official `asyncio` docs.\n* https://realpython.com/async-io-python/ -> A comprehensive guide that gives a good overview about what `asyncio` is and how to start using it.",
-    "summary": "In this unit we've learned how to use the `async` keyword to define a coroutine and the `await` keyword together with `asyncio.run` in order to call and run an async function.",
-    "hunksOrder": [
-        "src/hello_asyncio.py_0",
-        "src/hello_asyncio.py_1"
-    ],
-    "tests": [
-        "python -m pytest tests/test_hello_asyncio.py"
-    ],
-    "hints": [
-        "You'll first need to define the function as a coroutine. There's a special keyword that does that...",
-        "You can't just call a coroutine, you need to set up an event loop and register it to run there. Fortunately `asyncio` has a function that does just that."
-    ],
-    "play_mode": "handson",
-    "swimmPatch": {
-        "src/hello_asyncio.py": {
-            "diffType": "MODIFIED",
-            "fileDiffHeader": "diff --git a/src/hello_asyncio.py b/src/hello_asyncio.py\nindex 5f8d959..da8cae5 100644\n--- a/src/hello_asyncio.py\n+++ b/src/hello_asyncio.py",
-            "hunks": [
-                {
-                    "swimmHunkMetadata": {
-                        "hunkComments": []
-                    },
-                    "hunkDiffLines": [
-                        "@@ -1,12 +1,12 @@",
-                        "-import asyncio",
-                        "+import time",
-                        " ",
-                        " ",
-                        "-async def hello_asyncio() -> None:",
-                        "+def hello_asyncio() -> None:",
-                        "     \"\"\"",
-                        "     Print some infamous quote with a respectable 1 second sleep for a dramatic effect.",
-                        "     \"\"\"",
-                        "     print('This is going to be legen...')",
-                        "-    await asyncio.sleep(1)",
-                        "+    time.sleep(1)",
-                        "     print('...dary!')",
-                        " ",
-                        " "
-                    ]
-                },
-                {
-                    "swimmHunkMetadata": {
-                        "hunkComments": []
-                    },
-                    "hunkDiffLines": [
-                        "@@ -14,4 +14,4 @@",
-                        "     \"\"\"",
-                        "     Run the function `hello_asyncio`.",
-                        "     \"\"\"",
-                        "-    asyncio.run(hello_asyncio())",
-                        "+    hello_asyncio()"
-                    ]
-                }
-            ]
+    "file_version": "2.0.1",
+    "meta": {
+        "app_version": "0.4.4-0",
+        "file_blobs": {
+            "src/hello_asyncio.py": "5f8d95943b061901b194acca04b8965339fca7f9"
         }
     },
-    "app_version": "0.2.6",
-    "file_version": "1.0.4"
+    "content": [
+        {
+            "type": "text",
+            "text": "In this unit we'll learn the basics of defining an `async` function and running it using `asyncio`.\n\n## Recommended References\n* https://docs.python.org/3/library/asyncio.html -> The official `asyncio` docs.\n* https://realpython.com/async-io-python/ -> A comprehensive guide that gives a good overview about what `asyncio` is and how to start using it."
+        },
+        {
+            "type": "snippet",
+            "path": "src/hello_asyncio.py",
+            "comments": [],
+            "firstLineNumber": 1,
+            "lines": [
+                "*import asyncio",
+                "+import time",
+                " ",
+                " ",
+                "*async def hello_asyncio() -> None:",
+                "+def hello_asyncio() -> None:",
+                "     \"\"\"",
+                "     Print some infamous quote with a respectable 1 second sleep for a dramatic effect.",
+                "     \"\"\"",
+                "     print('This is going to be legen...')",
+                "*    await asyncio.sleep(1)",
+                "+    time.sleep(1)",
+                "     print('...dary!')",
+                " ",
+                " "
+            ]
+        },
+        {
+            "type": "snippet",
+            "path": "src/hello_asyncio.py",
+            "comments": [],
+            "firstLineNumber": 14,
+            "lines": [
+                "     \"\"\"",
+                "     Run the function `hello_asyncio`.",
+                "     \"\"\"",
+                "*    asyncio.run(hello_asyncio())",
+                "+    hello_asyncio()"
+            ]
+        },
+        {
+            "type": "text",
+            "text": "In this unit we've learned how to use the `async` keyword to define a coroutine and the `await` keyword together with `asyncio.run` in order to call and run an async function."
+        }
+    ],
+    "task": {
+        "dod": "Make the tests pass.",
+        "hints": [
+            "You'll first need to define the function as a coroutine. There's a special keyword that does that...",
+            "You can't just call a coroutine, you need to set up an event loop and register it to run there. Fortunately `asyncio` has a function that does just that."
+        ],
+        "tests": [
+            "python -m pytest tests/test_hello_asyncio.py"
+        ]
+    }
 }
